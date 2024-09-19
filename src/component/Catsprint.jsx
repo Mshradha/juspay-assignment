@@ -190,7 +190,30 @@ export default function CatSprite({ onMouseDown, pos, id, angle }) {
           </g>
         </g>
       </svg>
-      <p>{id}</p>
+      <p style={{ textAlign: "center", fontWeight: "bold" }}>Sprite {id}</p>
+      <span
+        style={{
+          textAlign: "center",
+          border: "0.5px solid #2db92d",
+          padding: "5px",
+          borderRadius: "10px",
+          backgroundColor: "#e6ffe6",
+        }}
+      >
+        X:{Math.round(pos.x)}{" "}
+      </span>
+      <span
+        style={{
+          textAlign: "center",
+          border: "0.5px solid #2db92d",
+          padding: "5px",
+          borderRadius: "10px",
+          marginLeft: "4px",
+          backgroundColor: "#e6ffe6",
+        }}
+      >
+        Y:{Math.round(pos.y)}
+      </span>
     </div>
   );
 }

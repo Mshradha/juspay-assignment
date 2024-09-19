@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DragnDrop from "../leftSection/DragnDrop";
 import Play from "./Play";
 import playImage from "../../assets/play.png";
-import resetImage from "../../assets/reset.png";
 
 const Landing = () => {
   const [sprites, setSprites] = useState([
@@ -10,7 +9,7 @@ const Landing = () => {
       id: 1,
       initialPos: {
         x: 0.74 * 1400,
-        y: 0.4 * 600,
+        y: 0.44 * 600,
       },
       angle: 0,
     },
@@ -31,8 +30,6 @@ const Landing = () => {
   };
 
   const handlePlay = async () => {
-    console.log(allActions);
-
     const executeAction = (action, sprite) => {
       let newPos = { ...sprite.initialPos };
       let newAngle = sprite.angle;
@@ -108,26 +105,35 @@ const Landing = () => {
     );
   };
 
-  const onResetImage = () => {
-    console.log("resetImage");
-  };
-
   return (
     <div
-      style={{ display: "flex", width: "100vw", gap: "2vw", flexWrap: "wrap" }}
+      style={{
+        display: "flex",
+        width: "100vw",
+        gap: "2vw",
+        flexWrap: "wrap",
+        marginTop: "1%",
+      }}
     >
       <DragnDrop numSprites={sprites.length} setAllActions={setAllActions} />
-      <div style={{ width: "48vw", height: "600px", border: "1px solid blue" }}>
+      <div
+        style={{
+          minWidth: "45vw",
+          height: "600px",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          backgroundColor: "white",
+        }}
+      >
         <Play sprites={sprites} />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button
             style={{
               marginTop: "15px",
               padding: "10px",
-
               marginLeft: "10px",
               borderRadius: "20px",
-              backgroundColor: "lightblue",
+              backgroundColor: sprites.length === 3 ? "#2db92d" : "#e6ffe6",
+              border: "1px solid #2db92d",
             }}
             disabled={sprites.length === 3}
             onClick={addSprite}
@@ -144,16 +150,6 @@ const Landing = () => {
               onClick={handlePlay}
             >
               <img src={playImage} width={30} height={35} />
-            </button>
-            <button
-              style={{
-                marginTop: "15px",
-                padding: "10px",
-                marginRight: "10px",
-              }}
-              onClick={onResetImage}
-            >
-              <img src={resetImage} width={30} height={35} />
             </button>
           </div>
         </div>
