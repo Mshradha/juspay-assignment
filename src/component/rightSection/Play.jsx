@@ -33,10 +33,10 @@ const DraggableSprite = ({ initialPos, id, angle }) => {
       let newY = e.pageY - rel.y;
 
       let maxX = 1400 - 100;
-      let maxY = 600 - 100;
+      let maxY = 650 - 100;
 
-      if (newX < 550) newX = 700;
-      if (newY < 0) newY = 0;
+      if (newX < 550) newX = 750;
+      if (newY < 0) newY = 70;
       if (newX > maxX) newX = maxX;
       if (newY > maxY) newY = maxY;
 
@@ -46,8 +46,6 @@ const DraggableSprite = ({ initialPos, id, angle }) => {
       });
       initialPos.x = newX;
       initialPos.y = newY;
-      console.log(initialPos.x, "initial");
-
       e.stopPropagation();
       e.preventDefault();
     };
